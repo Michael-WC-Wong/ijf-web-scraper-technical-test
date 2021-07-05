@@ -11,6 +11,8 @@ bs4 = "*"
 ipykernel = "*"
 jupyterlab = "*"
 webdriver-manager = "*"
+requests = "*"
+lxml = "*"
 
 [dev-packages]
 
