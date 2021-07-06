@@ -3,7 +3,7 @@
 ## 2021-07-05
 
 
-## To-do
+## Notes
 -	Selenium doesn’t work
     o	The lobbyist profiles are delivered through ASP, so will likely require either Selenium or more advanced requests/urllib calls
 -	How to check if page has been updated with new names (tracking names? Webpage changes?)
