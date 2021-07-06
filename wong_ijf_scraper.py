@@ -7,7 +7,7 @@
 
 # # Module Calls
 
-# In[4]:
+# In[44]:
 
 
 ############### PYTHON 3
@@ -57,7 +57,7 @@ pd.set_option('display.max_colwidth', None)
 
 # # Scraper and Data Read-in
 
-# In[41]:
+# In[47]:
 
 
 def get_pages(filename, link, output_dir=None, subpages=None, sleep_time=5):
@@ -102,7 +102,7 @@ def get_pages(filename, link, output_dir=None, subpages=None, sleep_time=5):
     if subpages is not None:
         for number, name in enumerate(subpages):
             
-            if "/" in name:
+            if "/" in str(name):
                 output_path = filename+"_"+str(number)+".xml"
             else:            
                 output_path = filename+"_"+str(name)+".xml"
@@ -176,7 +176,7 @@ def get_pages(filename, link, output_dir=None, subpages=None, sleep_time=5):
     return batch_dict
 
 
-# In[6]:
+# In[48]:
 
 
 # For acquiring main page data
@@ -184,7 +184,7 @@ lobbyist_list_batch_dict = get_pages(
                             filename="novascotia_lobbyists",
                               link="https://novascotia.ca/sns/lobbyist/search.asp?page={}&slt_searchType=&txt_search=&RdStatus=&RdType=&dept_agency=",
                               output_dir="data/novascotia_lobbyist_lists",
-                              subpages=list(range(0,1351,25)),
+                              subpages=list(range(0,101,25)),
                               sleep_time=5
 )
 
@@ -193,7 +193,7 @@ lobbyist_list_batch_dict = get_pages(
 
 # # Nova Scotia Lobbying Data Cleaning and Analysis
 
-# In[37]:
+# In[49]:
 
 
 def lobbyist_xml_to_df(input_dir, filename, batch_dict=None, lobbyist_df=None):
@@ -286,7 +286,7 @@ def lobbyist_xml_to_df(input_dir, filename, batch_dict=None, lobbyist_df=None):
         return lobbyist_df_appender(input_dir, filename, lobbyist_df)
 
 
-# In[38]:
+# In[50]:
 
 
 novascotia_lobbyist_df = lobbyist_xml_to_df(input_dir="data/novascotia_lobbyist_lists",filename="novascotia_lobbyists")#,lobbyist_df=novascotia_lobbyist_df)
